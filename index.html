@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestie • Forever Friends</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --soft-pink: #c3f7e8;
+            --medium-pink: #5eead4;
+            --love-red: #0d9488;
+            --romantic-purple: #3b82f6;
+            --soft-lavender: #93c5fd;
+            --warm-yellow: #d1fae5;
+            --baby-blue: #7dd3fc;
+            --glass-effect: rgba(255, 255, 255, 0.3);
+            --shadow-soft: 0 15px 35px rgba(13, 148, 136, 0.15);
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f0fdfa 0%, #ecfeff 50%, #f0f9ff 100%);
+            font-family: 'Quicksand', sans-serif;
+            color: #1e3a3a;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating Hearts Background */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(13, 148, 136, 0.15);
+            font-size: 20px;
+            animation: floatHeart 20s infinite linear;
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.6; }
+            80% { opacity: 0.6; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Soft Blur Circles */
+        .blur-circle {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            background: rgba(195, 247, 232, 0.3);
+            top: -100px;
+            left: -100px;
+        }
+
+        .circle-2 {
+            width: 500px;
+            height: 500px;
+            background: rgba(59, 130, 246, 0.2);
+            bottom: -200px;
+            right: -100px;
+            animation-delay: -2s;
+        }
+
+        .circle-3 {
+            width: 300px;
+            height: 300px;
+            background: rgba(209, 250, 229, 0.3);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -4s;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header */
+        header {
+            padding: 1.5rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--love-red);
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.05); }
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #0d9488, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: #0d9488;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #3b82f6;
+        }
+
+        nav a::after {
+            content: '🌿';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        nav a:hover::after {
+            bottom: -25px;
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 100px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #0d9488, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+            animation: glowText 3s ease-in-out infinite;
+        }
+
+        @keyframes glowText {
+            0%, 100% { filter: drop-shadow(0 0 5px rgba(13, 148, 136, 0.3)); }
+            50% { filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.5)); }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin-bottom: 2.5rem;
+            color: #2f4f4f;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(5px);
+            padding: 1.5rem 2.5rem;
+            border-radius: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px rgba(13, 148, 136, 0.1);
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(45deg, #5eead4, #93c5fd);
+            color: #1e3a3a;
+            border: none;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(13, 148, 136, 0.2);
+            text-decoration: none;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(13, 148, 136, 0.3);
+            gap: 20px;
+        }
+
+        .cta-button i {
+            font-size: 1.3rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+        }
+
+        /* Gallery Section */
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 600;
+            text-align: center;
+            margin: 4rem 0 3rem;
+            position: relative;
+            color: #0d9488;
+        }
+
+        .section-title::before,
+        .section-title::after {
+            content: '🌿';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            opacity: 0.5;
+        }
+
+        .section-title::before {
+            left: 25%;
+        }
+
+        .section-title::after {
+            right: 25%;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .photo-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 15px 35px rgba(13, 148, 136, 0.1);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .photo-card::before {
+            content: '🌿';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 2rem;
+            opacity: 0;
+            transform: rotate(15deg);
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .photo-card:hover::before {
+            opacity: 1;
+            top: 10px;
+            right: 10px;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-15px) rotate(1deg);
+            box-shadow: 0 30px 50px rgba(13, 148, 136, 0.2);
+            border-color: rgba(13, 148, 136, 0.3);
+        }
+
+        .photo-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+            border-bottom: 3px solid rgba(13, 148, 136, 0.2);
+        }
+
+        .photo-card:hover .photo-img {
+            transform: scale(1.05);
+            border-bottom-color: #0d9488;
+        }
+
+        .photo-info {
+            padding: 1.8rem;
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .photo-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #0d9488;
+        }
+
+        .photo-date {
+            color: #0e7490;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .photo-date i {
+            color: #5eead4;
+        }
+
+        .photo-desc {
+            color: #2f4f4f;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Music Player */
+        .music-player-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        .music-player {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 20px;
+            width: 280px;
+            box-shadow: 0 15px 35px rgba(13, 148, 136, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease;
+            display: none;
+        }
+
+        .music-player.active {
+            transform: translateY(0);
+            opacity: 1;
+            display: block;
+        }
+
+        .player-info {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .song-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0d9488;
+            margin-bottom: 5px;
+        }
+
+        .song-artist {
+            color: #0e7490;
+            font-size: 0.9rem;
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .player-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #5eead4, #93c5fd);
+            border: none;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(13, 148, 136, 0.3);
+        }
+
+        .player-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(13, 148, 136, 0.5);
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 5px;
+            background: rgba(13, 148, 136, 0.1);
+            border-radius: 10px;
+            cursor: pointer;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #5eead4, #3b82f6);
+            width: 0%;
+            transition: width 0.1s linear;
+            border-radius: 10px;
+        }
+
+        .time-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #0e7490;
+        }
+
+        .music-toggle-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #0d9488, #3b82f6);
+            border: none;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(13, 148, 136, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* WhatsApp Buttons */
+        .whatsapp-container {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .whatsapp-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #5eead4, #93c5fd);
+            border: 2px solid white;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(13, 148, 136, 0.2);
+            position: relative;
+        }
+
+        .whatsapp-btn.channel {
+            background: linear-gradient(135deg, #3b82f6, #93c5fd);
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 10px 30px rgba(13, 148, 136, 0.3);
+        }
+
+        .tooltip {
+            position: absolute;
+            left: 60px;
+            background: white;
+            color: #0d9488;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+            border: 1px solid #5eead4;
+        }
+
+        .whatsapp-btn:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            left: 70px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(240, 253, 250, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 80%;
+            max-height: 80%;
+            position: relative;
+            animation: zoomIn 0.5s ease;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8) rotate(-2deg); opacity: 0; }
+            to { transform: scale(1) rotate(0); opacity: 1; }
+        }
+
+        .modal-img {
+            width: 100%;
+            height: auto;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(13, 148, 136, 0.2);
+            border: 5px solid white;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: none;
+            border: none;
+            color: #0d9488;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            transform: rotate(180deg);
+            color: #3b82f6;
+        }
+
+        .modal-info {
+            position: absolute;
+            bottom: -80px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #0d9488;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #5eead4;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 8rem;
+            padding: 4rem 5%;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.7);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #0d9488, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-text {
+            color: #2f4f4f;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0d9488;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(13, 148, 136, 0.1);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: linear-gradient(135deg, #5eead4, #93c5fd);
+            color: white;
+        }
+
+        .copyright {
+            color: #0e7490;
+            font-size: 0.95rem;
+            padding-top: 2rem;
+            border-top: 2px dashed rgba(13, 148, 136, 0.2);
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #5eead4, #3b82f6);
+            z-index: 1001;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 15px rgba(13, 148, 136, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1.1rem; padding: 1.2rem; }
+            .section-title { font-size: 2.2rem; }
+            .section-title::before, .section-title::after { display: none; }
+            nav ul { gap: 1rem; }
+            nav a { font-size: 0.9rem; }
+            .music-player { width: 250px; }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 { font-size: 2.2rem; }
+            .header-container { flex-direction: column; gap: 1rem; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
+            .gallery-container { grid-template-columns: 1fr; }
+            .music-player { width: 220px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- Soft Blur Circles -->
+    <div class="blur-circle circle-1"></div>
+    <div class="blur-circle circle-2"></div>
+    <div class="blur-circle circle-3"></div>
+
+    <!-- WhatsApp Buttons -->
+    <div class="whatsapp-container">
+        <button class="whatsapp-btn" id="whatsappNumberBtn">
+            <i class="fab fa-whatsapp"></i>
+            <span class="tooltip">Chat bestie 🌿</span>
+        </button>
+        <button class="whatsapp-btn channel" id="whatsappChannelBtn">
+            <i class="fas fa-heart"></i>
+            <span class="tooltip">Group bestie 💙</span>
+        </button>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player-container">
+        <div class="music-player" id="musicPlayer">
+            <div class="player-info">
+                <div class="song-title" id="songTitle">Best Friend Song</div>
+                <div class="song-artist" id="songArtist">For My Bestie 🌿</div>
+            </div>
+            <div class="player-controls">
+                <button class="player-btn" id="playPauseBtn">
+                    <i class="fas fa-play" id="playPauseIcon"></i>
+                </button>
+                <button class="player-btn" id="volumeBtn">
+                    <i class="fas fa-volume-up" id="volumeIcon"></i>
+                </button>
+            </div>
+            <div class="progress-container" id="progressContainer">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="time-info">
+                <span id="currentTime">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+            <audio id="audioPlayer" preload="auto" loop>
+                <source src="music.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <button class="music-toggle-btn" id="musicToggleBtn">
+            <i class="fas fa-music"></i>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="logo-text">Bestie Forever</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#gallery">Bestie's Gallery</a></li>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <h1>My Best Friend</h1>
+            <p>My Bestie 
+To my bestie, thanks for always joining me to play Roblox together. 🌿</p>
+            <a href="#gallery" class="cta-button">
+                <i class="fas fa-heart"></i> Our Memories <i class="fas fa-heart"></i>
+            </a>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <h2 class="section-title">Sweet Memories</h2>
+            <div class="gallery-container" id="galleryContainer"></div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" style="margin-top: 6rem; padding: 3rem 0;">
+            <h2 class="section-title">Our Journey</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center; background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px); padding: 3rem; border-radius: 60px; border: 1px solid rgba(255, 255, 255, 0.7);">
+                <p style="font-size: 1.3rem; color: #2f4f4f; margin-bottom: 1.5rem; line-height: 1.8;">
+                    "Best friends are the people in your life that make you laugh a little louder, smile a little brighter, and live a little better. Thank you for being mine."
+                </p>
+                <i class="fas fa-heart" style="color: #0d9488; font-size: 2rem; animation: heartbeat 1.5s infinite;"></i>
+            </div>
+        </section>
+    </main>
+
+    <!-- Photo Modal -->
+    <div class="modal" id="photoModal">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="" class="modal-img">
+            <div class="modal-info">
+                <h3 id="modalTitle" style="font-family: 'Poppins', sans-serif; font-size: 1.8rem; margin-bottom: 0.5rem;"></h3>
+                <p id="modalDesc" style="color: #0e7490;"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-logo">Bestie Forever</div>
+            <p class="footer-text">My Bestie 
+To my bestie, thanks for always joining me to play Roblox together.💙</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-spotify"></i></a>
+            </div>
+            <div class="copyright">
+                🌿 Made with love for my best friend 🌿
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ======================== PHOTO DATA (DIREVISI, MENGGUNAKAN NAMA FILE ASLI anime1.jpg - anime31.jpg) ========================
+        const photoData = [
+            { id: 1, title: "First Time Meeting", date: "21 Dec 2025", desc: "The day we first met, and I knew we'd be friends forever!", img: "anime1.jpg" },
+            { id: 2, title: "Hanging Out", date: "22 Apr 2025", desc: "Just chilling together, talking about everything and nothing.", img: "anime2.jpg" },
+            { id: 3, title: "Weekend Fun", date: "21 Dec 2025", desc: "Our first weekend hangout, so much fun!", img: "anime3.jpg" },
+            { id: 4, title: "Group Picture", date: "21 Dec 2025", desc: "Our first picture together, gonna keep this forever.", img: "anime4.jpg" },
+            { id: 5, title: "Secret Adventure", date: "21 Dec 2025", desc: "That one time we went on a random adventure!", img: "anime5.jpg" },
+            { id: 6, title: "Game Night", date: "12 Aug 2025", desc: "Playing games together, you always win lol.", img: "anime6.jpg" },
+            { id: 7, title: "Sunset Views", date: "3 Sep 2025", desc: "Watching the sunset together, so beautiful.", img: "anime7.jpg" },
+            { id: 8, title: "Dinner Date", date: "19 Sep 2025", desc: "Our dinner hangout, food tastes better with you.", img: "anime8.jpg" },
+            { id: 9, title: "Surprise!", date: "5 Oct 2025", desc: "A little surprise for you, your reaction was priceless!", img: "anime9.jpg" },
+            { id: 10, title: "Funny Faces", date: "21 Oct 2025", desc: "Making silly faces, laughing nonstop.", img: "anime10.jpg" },
+            { id: 11, title: "Walk in the Park", date: "2 Nov 2025", desc: "Just walking and talking about life.", img: "anime11.jpg" },
+            { id: 12, title: "Cafe Hopping", date: "15 Nov 2025", desc: "Trying out new cafes together.", img: "anime12.jpg" },
+            { id: 13, title: "Selfie Time", date: "28 Nov 2025", desc: "Taking endless selfies, all of them are cute.", img: "anime13.jpg" },
+            { id: 14, title: "Birthday Bash", date: "10 Dec 2025", desc: "Celebrating your birthday, so special!", img: "anime14.jpg" },
+            { id: 15, title: "New Year's Eve", date: "31 Dec 2025", desc: "Our first New Year together, fireworks were amazing.", img: "anime15.jpg" },
+            { id: 16, title: "Night Walk", date: "14 Jan 2025", desc: "Walking at night, city lights were romantic.", img: "anime16.jpg" },
+            { id: 17, title: "Study Session", date: "27 Jan 2025", desc: "Studying together, you're such a good teacher.", img: "anime17.jpg" },
+            { id: 18, title: "Sweet Surprise", date: "8 Feb 2025", desc: "A sweet surprise just for you.", img: "anime18.jpg" },
+            { id: 19, title: "Concert Vibes", date: "22 Feb 2025", desc: "Watching a concert together, so much fun!", img: "anime19.jpg" },
+            { id: 20, title: "Picnic Day", date: "7 Mar 2025", desc: "A little picnic, simple but fun!", img: "anime20.jpg" },
+            { id: 21, title: "At the Park", date: "18 Mar 2024", desc: "Sitting in the park, talking about our future.", img: "anime21.jpg" },
+            { id: 22, title: "Cooking Together", date: "2 Apr 2024", desc: "Cooking together, burnt it but still happy!", img: "anime22.jpg" },
+            { id: 23, title: "Sunrise Watch", date: "15 Apr 2025", desc: "Watching the sunrise, so beautiful.", img: "anime23.jpg" },
+            { id: 24, title: "Boat Ride", date: "21 Feb 2026", desc: "Taking a boat ride, the water was so clear.", img: "anime24.jpg" },
+            { id: 25, title: "Snow Day", date: "21 Feb 2026", desc: "Our first snow day, cold but fun!", img: "anime25.jpg" },
+            { id: 26, title: "Hiking Trip", date: "23 May 2026", desc: "Hiking together, tired but the view was worth it.", img: "anime26.jpg" },
+            { id: 27, title: "Bonfire Night", date: "11 Apr 2026", desc: "Sitting by the bonfire, warm and cozy.", img: "anime27.jpg" },
+            { id: 28, title: "Old Town", date: "11 Apr 2026", desc: "Exploring the old town, so many cool photo spots.", img: "anime28.jpg" },
+            { id: 29, title: "Creative Shots", date: "11 Apr 2026", desc: "Taking creative photos, so aesthetic.", img: "anime29.jpg" },
+            { id: 30, title: "Last Memory", date: "11 Apr 2026", desc: "Our last memory before we parted for a bit.", img: "anime30.jpg" },
+            { id: 31, title: "Forever Friends", date: "12 Apr 2026", desc: "Best friends forever, no matter the distance.", img: "anime31.jpg" },
+            { id: 32, title: "Petualangan Baru", date: "12 Apr 2026", desc: "Momen tak terlupakan bersama bestie!", img: "anime32.jpg" },
+            { id: 33, title: "Petualangan Baru", date: "12 Apr 2026", desc: "Momen tak terlupakan bersama bestie!", img: "anime32.jpg" },
+            { id: 34, title: "Petualangan Baru", date: "12 Apr 2026", desc: "Momen tak terlupakan bersama bestie!", img: "anime32.jpg" },
+            { id: 35, title: "Petualangan Baru", date: "12 Apr 2026", desc: "Momen tak terlupakan bersama bestie!", img: "anime32.jpg" },
+            { id: 36, title: "Petualangan Baru", date: "12 Apr 2026", desc: "Momen tak terlupakan bersama bestie!", img: "anime32.jpg" },
+            { id: 37, title: "Petualangan Baru", date: "12 Apr 2026", desc: "Momen tak terlupakan bersama bestie!", img: "anime32.jpg" }
+        ];
+
+        // WhatsApp Data
+        const whatsappData = {
+            number: "6288976255131",
+            channel: "https://whatsapp.com/channel/0029Vb6EXzn9Gv7NRopIph0t"
+        };
+
+        // Generate Gallery
+        const galleryContainer = document.getElementById('galleryContainer');
+        
+        photoData.forEach((photo, index) => {
+            const card = document.createElement('div');
+            card.className = 'photo-card';
+            card.style.animationDelay = `${index * 0.05}s`;
+            card.setAttribute('data-id', photo.id);
+            
+            card.innerHTML = `
+                <img src="${photo.img}" alt="${photo.title}" class="photo-img" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x250?text=Gambar+Tidak+Ditemukan';">
+                <div class="photo-info">
+                    <h3 class="photo-title">${photo.title}</h3>
+                    <div class="photo-date"><i class="far fa-calendar"></i> ${photo.date}</div>
+                    <p class="photo-desc">${photo.desc}</p>
+                </div>
+            `;
+            
+            galleryContainer.appendChild(card);
+        });
+
+        // ======================== MODAL (event listener setelah card dibuat) ========================
+        const modal = document.getElementById('photoModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalClose = document.getElementById('modalClose');
+
+        // Pasang event listener ke setiap photo-card
+        document.querySelectorAll('.photo-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const img = card.querySelector('.photo-img').src;
+                const title = card.querySelector('.photo-title').textContent;
+                const dateElem = card.querySelector('.photo-date').textContent;
+                const desc = card.querySelector('.photo-desc').textContent;
+                
+                modalImage.src = img;
+                modalTitle.textContent = title;
+                modalDesc.textContent = `${dateElem} - ${desc}`;
+                modal.classList.add('active');
+            });
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Floating Hearts
+        const heartsContainer = document.getElementById('floatingHearts');
+        for (let i = 0; i < 40; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '🌿';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = 10 + Math.random() * 20 + 's';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            heart.style.fontSize = 15 + Math.random() * 25 + 'px';
+            heartsContainer.appendChild(heart);
+        }
+
+        // ======================== MUSIC PLAYER ========================
+        const audio = document.getElementById('audioPlayer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const playPauseIcon = document.getElementById('playPauseIcon');
+        const volumeBtn = document.getElementById('volumeBtn');
+        const volumeIcon = document.getElementById('volumeIcon');
+        const progressBar = document.getElementById('progressBar');
+        const progressContainer = document.getElementById('progressContainer');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+        const musicToggleBtn = document.getElementById('musicToggleBtn');
+        const musicPlayer = document.getElementById('musicPlayer');
+
+        let isPlaying = false;
+        let isMuted = false;
+        let isPlayerVisible = false;
+
+        function playAudio() {
+            audio.play().then(() => {
+                playPauseIcon.classList.remove('fa-play');
+                playPauseIcon.classList.add('fa-pause');
+                musicToggleBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                isPlaying = true;
+            }).catch(err => {
+                console.log("Audio play error (maybe no music.mp3):", err);
+            });
+        }
+
+        playPauseBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (isPlaying) {
+                audio.pause();
+                playPauseIcon.classList.remove('fa-pause');
+                playPauseIcon.classList.add('fa-play');
+                musicToggleBtn.innerHTML = '<i class="fas fa-music"></i>';
+                isPlaying = false;
+            } else {
+                playAudio();
+            }
+        });
+
+        volumeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isMuted = !isMuted;
+            audio.muted = isMuted;
+            volumeIcon.className = isMuted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            if (audio.duration) {
+                const percent = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = percent + '%';
+                currentTimeEl.textContent = formatTime(audio.currentTime);
+            }
+        });
+
+        audio.addEventListener('loadedmetadata', () => {
+            durationEl.textContent = formatTime(audio.duration);
+        });
+
+        audio.addEventListener('error', (e) => {
+            console.log("Audio file not found or unsupported. Music won't play.");
+        });
+
+        progressContainer.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const width = progressContainer.clientWidth;
+            const clickX = e.offsetX;
+            if (audio.duration) {
+                audio.currentTime = (clickX / width) * audio.duration;
+            }
+        });
+
+        audio.addEventListener('ended', () => {
+            if (isPlaying) {
+                audio.currentTime = 0;
+                playAudio();
+            }
+        });
+
+        musicToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isPlayerVisible = !isPlayerVisible;
+            if (isPlayerVisible) {
+                musicPlayer.classList.add('active');
+            } else {
+                musicPlayer.classList.remove('active');
+            }
+        });
+
+        function formatTime(seconds) {
+            if (isNaN(seconds) || seconds === Infinity) return "0:00";
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        // WhatsApp Buttons
+        document.getElementById('whatsappNumberBtn').addEventListener('click', () => {
+            window.open(`https://wa.me/${whatsappData.number}?text=Halo%20bestie!%20Aku%20liat%20website%20kenangan%20kita%20🌿`, '_blank');
+        });
+        document.getElementById('whatsappChannelBtn').addEventListener('click', () => {
+            window.open(whatsappData.channel, '_blank');
+        });
+
+        // Scroll Progress
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+        });
+
+        // Auto show music player after 2 seconds
+        setTimeout(() => {
+            musicPlayer.classList.add('active');
+            isPlayerVisible = true;
+        }, 2000);
+
+        // Smooth scroll untuk anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
