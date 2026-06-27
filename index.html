@@ -16,22 +16,22 @@
         }
 
         :root {
-            --soft-pink: #c3f7e8;
-            --medium-pink: #5eead4;
-            --love-red: #0d9488;
-            --romantic-purple: #3b82f6;
-            --soft-lavender: #93c5fd;
-            --warm-yellow: #d1fae5;
-            --baby-blue: #7dd3fc;
+            --soft-pink: #bbf7d0;
+            --medium-pink: #34d399;
+            --love-red: #10b981;
+            --romantic-purple: #22c55e;
+            --soft-lavender: #86efac;
+            --warm-yellow: #dcfce7;
+            --baby-blue: #4ade80;
             --glass-effect: rgba(255, 255, 255, 0.3);
-            --shadow-soft: 0 15px 35px rgba(13, 148, 136, 0.15);
+            --shadow-soft: 0 15px 35px rgba(16, 185, 129, 0.15);
         }
 
         body {
             min-height: 100vh;
-            background: linear-gradient(135deg, #f0fdfa 0%, #ecfeff 50%, #f0f9ff 100%);
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 35%, #eff6ff 70%, #f0fdfa 100%);
             font-family: 'Quicksand', sans-serif;
-            color: #1e3a3a;
+            color: #0f2e1f;
             overflow-x: hidden;
             position: relative;
         }
@@ -49,7 +49,7 @@
 
         .heart {
             position: absolute;
-            color: rgba(13, 148, 136, 0.15);
+            color: rgba(16, 185, 129, 0.15);
             font-size: 20px;
             animation: floatHeart 20s infinite linear;
         }
@@ -73,7 +73,7 @@
         .circle-1 {
             width: 400px;
             height: 400px;
-            background: rgba(195, 247, 232, 0.3);
+            background: rgba(187, 247, 208, 0.3);
             top: -100px;
             left: -100px;
         }
@@ -81,7 +81,7 @@
         .circle-2 {
             width: 500px;
             height: 500px;
-            background: rgba(59, 130, 246, 0.2);
+            background: rgba(34, 197, 94, 0.2);
             bottom: -200px;
             right: -100px;
             animation-delay: -2s;
@@ -90,11 +90,20 @@
         .circle-3 {
             width: 300px;
             height: 300px;
-            background: rgba(209, 250, 229, 0.3);
+            background: rgba(220, 252, 231, 0.3);
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             animation-delay: -4s;
+        }
+
+        .circle-4 {
+            width: 350px;
+            height: 350px;
+            background: rgba(96, 165, 250, 0.15);
+            top: 20%;
+            right: 5%;
+            animation-delay: -6s;
         }
 
         @keyframes pulse {
@@ -118,10 +127,10 @@
             width: 100%;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.2);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(14px);
+            background: rgba(255, 255, 255, 0.45);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.15);
+            box-shadow: 0 4px 30px rgba(16, 185, 129, 0.08);
         }
 
         .header-container {
@@ -155,7 +164,7 @@
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             font-size: 1.8rem;
-            background: linear-gradient(135deg, #0d9488, #3b82f6);
+            background: linear-gradient(135deg, #10b981, #22c55e);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -168,7 +177,7 @@
         }
 
         nav a {
-            color: #0d9488;
+            color: #10b981;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
@@ -177,7 +186,7 @@
         }
 
         nav a:hover {
-            color: #3b82f6;
+            color: #22c55e;
         }
 
         nav a::after {
@@ -213,7 +222,7 @@
             font-size: 4rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #0d9488, #3b82f6);
+            background: linear-gradient(135deg, #10b981, #22c55e);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -222,21 +231,21 @@
         }
 
         @keyframes glowText {
-            0%, 100% { filter: drop-shadow(0 0 5px rgba(13, 148, 136, 0.3)); }
-            50% { filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.5)); }
+            0%, 100% { filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.3)); }
+            50% { filter: drop-shadow(0 0 20px rgba(34, 197, 94, 0.5)); }
         }
 
         .hero p {
             font-size: 1.3rem;
             max-width: 700px;
             margin-bottom: 2.5rem;
-            color: #2f4f4f;
+            color: #1f3d2e;
             background: rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(5px);
             padding: 1.5rem 2.5rem;
             border-radius: 60px;
             border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 8px 32px rgba(13, 148, 136, 0.1);
+            box-shadow: 0 8px 32px rgba(16, 185, 129, 0.1);
         }
 
         .cta-button {
@@ -244,15 +253,15 @@
             align-items: center;
             gap: 15px;
             padding: 1.2rem 3rem;
-            background: linear-gradient(45deg, #5eead4, #93c5fd);
-            color: #1e3a3a;
+            background: linear-gradient(45deg, #34d399, #86efac);
+            color: #0f2e1f;
             border: none;
             border-radius: 60px;
             font-weight: 600;
             font-size: 1.2rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(13, 148, 136, 0.2);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
             text-decoration: none;
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.4);
@@ -260,7 +269,7 @@
 
         .cta-button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(13, 148, 136, 0.3);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
             gap: 20px;
         }
 
@@ -278,11 +287,15 @@
         .section-title {
             font-family: 'Poppins', sans-serif;
             font-size: 3rem;
-            font-weight: 600;
+            font-weight: 700;
             text-align: center;
             margin: 4rem 0 3rem;
             position: relative;
-            color: #0d9488;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, #10b981, #22c55e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .section-title::before,
@@ -311,13 +324,13 @@
         }
 
         .photo-card {
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.55);
             backdrop-filter: blur(10px);
-            border-radius: 30px;
+            border-radius: 26px;
             overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            box-shadow: 0 15px 35px rgba(13, 148, 136, 0.1);
+            transition: all 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(16, 185, 129, 0.18);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
             position: relative;
             cursor: pointer;
         }
@@ -341,9 +354,9 @@
         }
 
         .photo-card:hover {
-            transform: translateY(-15px) rotate(1deg);
-            box-shadow: 0 30px 50px rgba(13, 148, 136, 0.2);
-            border-color: rgba(13, 148, 136, 0.3);
+            transform: translateY(-12px) scale(1.015);
+            box-shadow: 0 25px 45px rgba(16, 185, 129, 0.22), 0 0 0 1px rgba(34, 197, 94, 0.15);
+            border-color: rgba(16, 185, 129, 0.4);
         }
 
         .photo-img {
@@ -351,12 +364,12 @@
             height: 250px;
             object-fit: cover;
             transition: all 0.5s ease;
-            border-bottom: 3px solid rgba(13, 148, 136, 0.2);
+            border-bottom: 3px solid rgba(16, 185, 129, 0.2);
         }
 
         .photo-card:hover .photo-img {
             transform: scale(1.05);
-            border-bottom-color: #0d9488;
+            border-bottom-color: #10b981;
         }
 
         .photo-info {
@@ -369,11 +382,11 @@
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: #0d9488;
+            color: #10b981;
         }
 
         .photo-date {
-            color: #0e7490;
+            color: #059669;
             font-size: 0.9rem;
             margin-bottom: 1rem;
             display: flex;
@@ -382,11 +395,11 @@
         }
 
         .photo-date i {
-            color: #5eead4;
+            color: #34d399;
         }
 
         .photo-desc {
-            color: #2f4f4f;
+            color: #1f3d2e;
             font-size: 0.95rem;
             line-height: 1.6;
         }
@@ -409,7 +422,7 @@
             border-radius: 30px;
             padding: 20px;
             width: 280px;
-            box-shadow: 0 15px 35px rgba(13, 148, 136, 0.2);
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.7);
             transform: translateY(20px);
             opacity: 0;
@@ -432,12 +445,12 @@
             font-family: 'Poppins', sans-serif;
             font-size: 1.2rem;
             font-weight: 600;
-            color: #0d9488;
+            color: #10b981;
             margin-bottom: 5px;
         }
 
         .song-artist {
-            color: #0e7490;
+            color: #059669;
             font-size: 0.9rem;
         }
 
@@ -453,7 +466,7 @@
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #5eead4, #93c5fd);
+            background: linear-gradient(45deg, #34d399, #86efac);
             border: none;
             color: white;
             font-size: 1rem;
@@ -462,18 +475,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 5px 15px rgba(13, 148, 136, 0.3);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
         }
 
         .player-btn:hover {
             transform: scale(1.1);
-            box-shadow: 0 0 25px rgba(13, 148, 136, 0.5);
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.5);
         }
 
         .progress-container {
             width: 100%;
             height: 5px;
-            background: rgba(13, 148, 136, 0.1);
+            background: rgba(16, 185, 129, 0.1);
             border-radius: 10px;
             cursor: pointer;
             overflow: hidden;
@@ -482,7 +495,7 @@
 
         .progress-bar {
             height: 100%;
-            background: linear-gradient(90deg, #5eead4, #3b82f6);
+            background: linear-gradient(90deg, #34d399, #22c55e);
             width: 0%;
             transition: width 0.1s linear;
             border-radius: 10px;
@@ -492,14 +505,14 @@
             display: flex;
             justify-content: space-between;
             font-size: 0.8rem;
-            color: #0e7490;
+            color: #059669;
         }
 
         .music-toggle-btn {
             width: 55px;
             height: 55px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #0d9488, #3b82f6);
+            background: linear-gradient(45deg, #10b981, #22c55e);
             border: none;
             color: white;
             font-size: 1.3rem;
@@ -508,7 +521,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 25px rgba(13, 148, 136, 0.3);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
             animation: float 3s ease-in-out infinite;
         }
 
@@ -532,7 +545,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #5eead4, #93c5fd);
+            background: linear-gradient(135deg, #34d399, #86efac);
             border: 2px solid white;
             color: white;
             font-size: 1.3rem;
@@ -541,24 +554,24 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 5px 20px rgba(13, 148, 136, 0.2);
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.2);
             position: relative;
         }
 
         .whatsapp-btn.channel {
-            background: linear-gradient(135deg, #3b82f6, #93c5fd);
+            background: linear-gradient(135deg, #22c55e, #86efac);
         }
 
         .whatsapp-btn:hover {
             transform: scale(1.15) rotate(5deg);
-            box-shadow: 0 10px 30px rgba(13, 148, 136, 0.3);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
         }
 
         .tooltip {
             position: absolute;
             left: 60px;
             background: white;
-            color: #0d9488;
+            color: #10b981;
             padding: 8px 15px;
             border-radius: 30px;
             font-size: 0.85rem;
@@ -568,7 +581,7 @@
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             font-weight: 600;
-            border: 1px solid #5eead4;
+            border: 1px solid #34d399;
         }
 
         .whatsapp-btn:hover .tooltip {
@@ -612,7 +625,7 @@
             width: 100%;
             height: auto;
             border-radius: 30px;
-            box-shadow: 0 30px 60px rgba(13, 148, 136, 0.2);
+            box-shadow: 0 30px 60px rgba(16, 185, 129, 0.2);
             border: 5px solid white;
         }
 
@@ -622,7 +635,7 @@
             right: 0;
             background: none;
             border: none;
-            color: #0d9488;
+            color: #10b981;
             font-size: 3rem;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -630,7 +643,7 @@
 
         .modal-close:hover {
             transform: rotate(180deg);
-            color: #3b82f6;
+            color: #22c55e;
         }
 
         .modal-info {
@@ -639,12 +652,12 @@
             left: 0;
             width: 100%;
             text-align: center;
-            color: #0d9488;
+            color: #10b981;
             background: white;
             padding: 1.5rem;
             border-radius: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid #5eead4;
+            border: 1px solid #34d399;
         }
 
         /* Footer */
@@ -661,7 +674,7 @@
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             font-size: 2.2rem;
-            background: linear-gradient(135deg, #0d9488, #3b82f6);
+            background: linear-gradient(135deg, #10b981, #22c55e);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -669,7 +682,7 @@
         }
 
         .footer-text {
-            color: #2f4f4f;
+            color: #1f3d2e;
             max-width: 600px;
             margin: 0 auto 2rem;
             font-size: 1.1rem;
@@ -690,24 +703,24 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #0d9488;
+            color: #10b981;
             font-size: 1.3rem;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(13, 148, 136, 0.1);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.1);
         }
 
         .social-icon:hover {
             transform: translateY(-5px) scale(1.1);
-            background: linear-gradient(135deg, #5eead4, #93c5fd);
+            background: linear-gradient(135deg, #34d399, #86efac);
             color: white;
         }
 
         .copyright {
-            color: #0e7490;
+            color: #059669;
             font-size: 0.95rem;
             padding-top: 2rem;
-            border-top: 2px dashed rgba(13, 148, 136, 0.2);
+            border-top: 2px dashed rgba(16, 185, 129, 0.2);
         }
 
         /* Scroll Progress */
@@ -716,10 +729,10 @@
             top: 0;
             left: 0;
             height: 4px;
-            background: linear-gradient(90deg, #5eead4, #3b82f6);
+            background: linear-gradient(90deg, #34d399, #22c55e);
             z-index: 1001;
             transition: width 0.3s ease;
-            box-shadow: 0 0 15px rgba(13, 148, 136, 0.3);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
         }
 
         /* Responsive */
@@ -753,6 +766,7 @@
     <div class="blur-circle circle-1"></div>
     <div class="blur-circle circle-2"></div>
     <div class="blur-circle circle-3"></div>
+    <div class="blur-circle circle-4"></div>
 
     <!-- WhatsApp Buttons -->
     <div class="whatsapp-container">
@@ -823,8 +837,7 @@
         <!-- Hero Section -->
         <section id="home" class="hero">
             <h1>My Best Friend</h1>
-            <p>My Bestie 
-To my bestie, thanks for always joining me to play Roblox together. 🌿</p>
+            <p>Thank you for often accompanying me playing Roblox with meThank you for often accompanying me playing Roblox with me. 🌿</p>
             <a href="#gallery" class="cta-button">
                 <i class="fas fa-heart"></i> Our Memories <i class="fas fa-heart"></i>
             </a>
@@ -840,10 +853,10 @@ To my bestie, thanks for always joining me to play Roblox together. 🌿</p>
         <section id="about" style="margin-top: 6rem; padding: 3rem 0;">
             <h2 class="section-title">Our Journey</h2>
             <div style="max-width: 800px; margin: 0 auto; text-align: center; background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px); padding: 3rem; border-radius: 60px; border: 1px solid rgba(255, 255, 255, 0.7);">
-                <p style="font-size: 1.3rem; color: #2f4f4f; margin-bottom: 1.5rem; line-height: 1.8;">
-                    "Best friends are the people in your life that make you laugh a little louder, smile a little brighter, and live a little better. Thank you for being mine."
+                <p style="font-size: 1.3rem; color: #1f3d2e; margin-bottom: 1.5rem; line-height: 1.8;">
+                    "Thank you for often accompanying me playing Roblox with me."
                 </p>
-                <i class="fas fa-heart" style="color: #0d9488; font-size: 2rem; animation: heartbeat 1.5s infinite;"></i>
+                <i class="fas fa-heart" style="color: #10b981; font-size: 2rem; animation: heartbeat 1.5s infinite;"></i>
             </div>
         </section>
     </main>
@@ -855,7 +868,7 @@ To my bestie, thanks for always joining me to play Roblox together. 🌿</p>
             <img id="modalImage" src="" alt="" class="modal-img">
             <div class="modal-info">
                 <h3 id="modalTitle" style="font-family: 'Poppins', sans-serif; font-size: 1.8rem; margin-bottom: 0.5rem;"></h3>
-                <p id="modalDesc" style="color: #0e7490;"></p>
+                <p id="modalDesc" style="color: #059669;"></p>
             </div>
         </div>
     </div>
@@ -864,8 +877,7 @@ To my bestie, thanks for always joining me to play Roblox together. 🌿</p>
     <footer id="contact">
         <div class="footer-content">
             <div class="footer-logo">Bestie Forever</div>
-            <p class="footer-text">My Bestie 
-To my bestie, thanks for always joining me to play Roblox together.💙</p>
+            <p class="footer-text">To my best friend: thanks for all the late night talks, spontaneous adventures, and for being my number one supporter. I love you, bestie! 💙</p>
             <div class="social-icons">
                 <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                 <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
